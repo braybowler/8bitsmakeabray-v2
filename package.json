@@ -12,7 +12,7 @@
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
-    "check": "npm run lint && npm run format && npm run type-check"
+    "check": "npm run lint && npm run format && npm run type-check && npm run test:unit"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.10",
