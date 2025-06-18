@@ -2,6 +2,6 @@
 
 <template>
   <main>
-    Home View - Under Construction
+    Projects View - Under Construction
   </main>
 </template>
