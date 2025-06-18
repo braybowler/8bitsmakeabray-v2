@@ -38,15 +38,15 @@ describe('TopNavBar', () => {
           plugins: [router],
         },
       })
-      const push = vi.spyOn(router, 'push')
+      const mockPush = vi.spyOn(router, 'push')
 
       const routerLink = wrapper.find(componentIdentifier)
       expect(routerLink.text()).toContain(label)
       expect(routerLink.attributes('href')).toBe(routePath)
 
       await routerLink.trigger('click')
-      expect(push).toHaveBeenCalledTimes(1)
-      expect(push).toHaveBeenCalledWith(routePath)
+      expect(mockPush).toHaveBeenCalledTimes(1)
+      expect(mockPush).toHaveBeenCalledWith(routePath)
     },
   )
 })
