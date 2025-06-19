@@ -58,12 +58,12 @@ describe('TopNavBar', () => {
     })
 
     const homeLink = wrapper.find('[id="home-link"]')
-    expect(homeLink.classes()).contains('underline')
+    expect(homeLink.classes()).contains('font-bold')
 
     await router.push('/about')
     await router.isReady()
 
     const aboutLink = wrapper.find('[id="about-link"]')
-    expect(aboutLink.classes()).contains('underline')
+    expect(aboutLink.classes()).contains('font-bold')
   })
 })
