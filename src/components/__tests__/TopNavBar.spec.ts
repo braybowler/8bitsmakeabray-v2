@@ -49,4 +49,21 @@ describe('TopNavBar', () => {
       expect(mockPush).toHaveBeenCalledWith(routePath)
     },
   )
+
+  it('underlines the active link', async () => {
+    const wrapper = mount(TopNavBar, {
+      global: {
+        plugins: [router],
+      },
+    })
+
+    const homeLink = wrapper.find('[id="home-link"]')
+    expect(homeLink.classes()).contains('underline')
+
+    await router.push('/about')
+    await router.isReady()
+
+    const aboutLink = wrapper.find('[id="about-link"]')
+    expect(aboutLink.classes()).contains('underline')
+  })
 })
