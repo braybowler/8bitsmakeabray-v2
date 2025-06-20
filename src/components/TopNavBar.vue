@@ -22,6 +22,13 @@ const toggleNavBarVisiblity = () => {
       <h1 class="xs:text-lg sm:text-2xl font-bold text-black">8BitsMakeABray</h1>
     </section>
 
+    <!-- TODO: Font, spacing, colouring. Hide when on smaller resolutions -->
+    <section id="rotating-titles" class="rotating-titles">
+      <span class="rotating-title">Athletic Therapist</span>
+      <span class="rotating-title">Registered Massage Therapist</span>
+      <span class="rotating-title">Movement Specialist</span>
+    </section>
+
     <section id="navigation">
       <nav class="xs:hidden sm:flex sm:items-center sm:space-x-4 text-black h-full">
         <RouterLink id="home-link" to="/" class="hover:underline" activeClass="font-bold"
@@ -47,21 +54,19 @@ const toggleNavBarVisiblity = () => {
           <Menu class="w-6 h-6" />
         </button>
         <div>
-          <nav
-            v-if="showNavBar"
-          >
+          <nav v-if="showNavBar">
             <RouterLink id="home-link" to="/" class="hover:underline" activeClass="font-bold"
-            >Home</RouterLink
+              >Home</RouterLink
             >
             <RouterLink id="about-link" to="/about" class="hover:underline" activeClass="font-bold"
-            >About</RouterLink
+              >About</RouterLink
             >
             <RouterLink
               id="projects-link"
               to="/projects"
               class="hover:underline"
               activeClass="font-bold"
-            >Projects</RouterLink
+              >Projects</RouterLink
             >
           </nav>
         </div>
@@ -69,3 +74,53 @@ const toggleNavBarVisiblity = () => {
     </section>
   </header>
 </template>
+
+<!--TODO: Font, Spacing, colouring.-->
+<style>
+.rotating-titles {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.rotating-title {
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  font-family: 'Raleway', sans-serif;
+  color: #ff5a13;
+  animation: rotateText 15s linear infinite;
+  opacity: 0;
+}
+
+.rotating-title:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.rotating-title:nth-child(2) {
+  animation-delay: 5s;
+}
+
+.rotating-title:nth-child(3) {
+  animation-delay: 10s;
+}
+
+@keyframes rotateText {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  5%,
+  25% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+</style>
