@@ -24,9 +24,9 @@ const toggleNavBarVisiblity = () => {
 
     <!-- TODO: Font, spacing, colouring. Hide when on smaller resolutions -->
     <section id="rotating-titles" class="rotating-titles">
-      <span class="rotating-title">Athletic Therapist</span>
-      <span class="rotating-title">Registered Massage Therapist</span>
-      <span class="rotating-title">Movement Specialist</span>
+      <span class="rotating-title">Entrepreneur</span>
+      <span class="rotating-title">Founder</span>
+      <span class="rotating-title">Full Stack Developer</span>
     </section>
 
     <section id="navigation">
