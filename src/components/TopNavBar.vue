@@ -2,16 +2,18 @@
 import { RouterLink } from 'vue-router'
 import { Menu } from 'lucide-vue-next'
 import { ref } from 'vue'
+import { useMediaQuery } from '@vueuse/core'
 
-const showNavBar = ref(false)
-const toggleNavBarVisiblity = () => {
-  showNavBar.value = !showNavBar.value
+const isMobile = useMediaQuery('(max-width: 767px)');
+const showDropDownMenu = ref(false)
+const toggleDropDownVisiblity = () => {
+  showDropDownMenu.value = !showDropDownMenu.value
 }
 </script>
 
 <template>
   <header
-    class="flex flex-row justify-between bg-white xs:py-2 xs:px-4 sm:py-6 sm:px-10 w-full shadow-sm"
+    class="flex flex-row justify-between bg-white xs:py-2 xs:px-4 sm:py-3 sm:px-6 w-full shadow-sm"
   >
     <section id="title" class="flex flex-row items-center space-x-2">
       <img
@@ -22,12 +24,11 @@ const toggleNavBarVisiblity = () => {
       <h1 class="xs:text-lg sm:text-2xl font-bold text-black">8BitsMakeABray</h1>
     </section>
 
-    <!-- TODO: Font, spacing, colouring. Hide when on smaller resolutions -->
-    <section id="rotating-titles" class="rotating-titles">
-      <span class="rotating-title">Entrepreneur</span>
-      <span class="rotating-title">Founder</span>
-      <span class="rotating-title">Full Stack Developer</span>
-    </section>
+    <div v-if=!isMobile id="rotating-titles" class="rotating-titles">
+        <span class="rotating-title">Entrepreneur</span>
+        <span class="rotating-title">Founder</span>
+        <span class="rotating-title">Full Stack Dev</span>
+    </div>
 
     <section id="navigation">
       <nav class="xs:hidden sm:flex sm:items-center sm:space-x-4 text-black h-full">
@@ -49,12 +50,12 @@ const toggleNavBarVisiblity = () => {
       <section id="navigation-menu" class="h-full">
         <button
           class="sm:hidden xs:flex xs:items-center text-black h-full"
-          @click="toggleNavBarVisiblity()"
+          @click="toggleDropDownVisiblity()"
         >
           <Menu class="w-6 h-6" />
         </button>
         <div>
-          <nav v-if="showNavBar">
+          <nav v-if="showDropDownMenu">
             <RouterLink id="home-link" to="/" class="hover:underline" activeClass="font-bold"
               >Home</RouterLink
             >
@@ -75,21 +76,21 @@ const toggleNavBarVisiblity = () => {
   </header>
 </template>
 
-<!--TODO: Font, Spacing, colouring.-->
 <style>
 .rotating-titles {
-  display: flex;
+  display: grid;
   align-items: center;
   justify-items: center;
 }
 
 .rotating-title {
   text-transform: uppercase;
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.25rem;
   font-family: 'Raleway', sans-serif;
   color: #ff5a13;
   animation: rotateText 15s linear infinite;
   opacity: 0;
+  text-wrap: nowrap;
 }
 
 .rotating-title:nth-child(1) {
