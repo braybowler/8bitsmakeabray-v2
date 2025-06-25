@@ -4,7 +4,7 @@ import { Menu } from 'lucide-vue-next'
 import { ref } from 'vue'
 import { useMediaQuery } from '@vueuse/core'
 
-const isMobile = useMediaQuery('(max-width: 767px)');
+const isMobile = useMediaQuery('(max-width: 767px)')
 const showDropDownMenu = ref(false)
 const toggleDropDownVisiblity = () => {
   showDropDownMenu.value = !showDropDownMenu.value
@@ -12,6 +12,11 @@ const toggleDropDownVisiblity = () => {
 </script>
 
 <template>
+  <div
+    v-if="showDropDownMenu"
+    class="fixed inset-0 bg-black opacity-30 z-5"
+    @click="toggleDropDownVisiblity"
+  ></div>
   <header
     class="flex flex-row justify-between bg-white xs:py-2 xs:px-4 sm:py-3 sm:px-6 w-full shadow-sm"
   >
@@ -24,10 +29,10 @@ const toggleDropDownVisiblity = () => {
       <h1 class="xs:text-lg sm:text-2xl font-bold text-black">8BitsMakeABray</h1>
     </section>
 
-    <div v-if=!isMobile id="rotating-titles" class="rotating-titles">
-        <span class="rotating-title">Entrepreneur</span>
-        <span class="rotating-title">Founder</span>
-        <span class="rotating-title">Full Stack Dev</span>
+    <div v-if="!isMobile" id="rotating-titles" class="rotating-titles">
+      <span class="rotating-title">Entrepreneur</span>
+      <span class="rotating-title">Founder</span>
+      <span class="rotating-title">Developer</span>
     </div>
 
     <section id="navigation">
@@ -54,12 +59,11 @@ const toggleDropDownVisiblity = () => {
         >
           <Menu class="w-6 h-6" />
         </button>
-        <div>
-          <nav v-if="showDropDownMenu">
-            <RouterLink id="home-link" to="/" class="hover:underline" activeClass="font-bold"
+          <nav v-if="showDropDownMenu" class="fixed xs:top-15 xs:right-4 bg-gray-100 flex flex-col text-black border border-black rounded-lg shadow-lg p-2 z-10">
+            <RouterLink id="home-link" to="/" class="hover:underline" activeClass="font-bold" @click="toggleDropDownVisiblity"
               >Home</RouterLink
             >
-            <RouterLink id="about-link" to="/about" class="hover:underline" activeClass="font-bold"
+            <RouterLink id="about-link" to="/about" class="hover:underline" activeClass="font-bold" @click="toggleDropDownVisiblity"
               >About</RouterLink
             >
             <RouterLink
@@ -67,10 +71,10 @@ const toggleDropDownVisiblity = () => {
               to="/projects"
               class="hover:underline"
               activeClass="font-bold"
+              @click="toggleDropDownVisiblity"
               >Projects</RouterLink
             >
           </nav>
-        </div>
       </section>
     </section>
   </header>
