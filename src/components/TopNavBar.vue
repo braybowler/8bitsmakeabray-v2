@@ -36,7 +36,7 @@ const toggleDropDownVisiblity = () => {
     </div>
 
     <section id="navigation">
-      <nav class="xs:hidden sm:flex sm:items-center sm:space-x-4 text-black h-full">
+      <nav id="navigation-links" v-if="!isMobile" class="xs:hidden sm:flex sm:items-center sm:space-x-4 text-black h-full">
         <RouterLink id="home-link" to="/" class="hover:underline" activeClass="font-bold"
           >Home</RouterLink
         >
@@ -52,29 +52,42 @@ const toggleDropDownVisiblity = () => {
         >
       </nav>
 
-      <section id="navigation-menu" class="h-full">
+      <section v-if="isMobile" id="navigation-menu" class="h-full">
         <button
           class="sm:hidden xs:flex xs:items-center text-black h-full"
           @click="toggleDropDownVisiblity()"
         >
           <Menu class="w-6 h-6" />
         </button>
-          <nav v-if="showDropDownMenu" class="fixed xs:top-15 xs:right-4 bg-gray-100 flex flex-col text-black border border-black rounded-lg shadow-lg p-2 z-10">
-            <RouterLink id="home-link" to="/" class="hover:underline" activeClass="font-bold" @click="toggleDropDownVisiblity"
-              >Home</RouterLink
-            >
-            <RouterLink id="about-link" to="/about" class="hover:underline" activeClass="font-bold" @click="toggleDropDownVisiblity"
-              >About</RouterLink
-            >
-            <RouterLink
-              id="projects-link"
-              to="/projects"
-              class="hover:underline"
-              activeClass="font-bold"
-              @click="toggleDropDownVisiblity"
-              >Projects</RouterLink
-            >
-          </nav>
+        <nav
+          v-if="showDropDownMenu"
+          class="fixed xs:top-15 xs:right-4 bg-gray-100 flex flex-col text-black border border-black rounded-lg shadow-lg p-2 z-10"
+        >
+          <RouterLink
+            id="home-link"
+            to="/"
+            class="hover:underline"
+            activeClass="font-bold"
+            @click="toggleDropDownVisiblity"
+            >Home</RouterLink
+          >
+          <RouterLink
+            id="about-link"
+            to="/about"
+            class="hover:underline"
+            activeClass="font-bold"
+            @click="toggleDropDownVisiblity"
+            >About</RouterLink
+          >
+          <RouterLink
+            id="projects-link"
+            to="/projects"
+            class="hover:underline"
+            activeClass="font-bold"
+            @click="toggleDropDownVisiblity"
+            >Projects</RouterLink
+          >
+        </nav>
       </section>
     </section>
   </header>
