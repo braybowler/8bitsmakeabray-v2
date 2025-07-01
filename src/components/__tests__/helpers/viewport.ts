@@ -1,7 +1,7 @@
 import {vi} from 'vitest'
 
 export function mockViewport(width: number) {
-  const impl = (query: string) => {
+  const mockImplementation = (query: string) => {
     const max = /\(max-width:\s*(\d+)px\)/.exec(query)
     const min = /\(min-width:\s*(\d+)px\)/.exec(query)
     const matches =
@@ -21,5 +21,5 @@ export function mockViewport(width: number) {
     }
   }
 
-  vi.stubGlobal('matchMedia', vi.fn(impl))
+  vi.stubGlobal('matchMedia', vi.fn(mockImplementation))
 }
