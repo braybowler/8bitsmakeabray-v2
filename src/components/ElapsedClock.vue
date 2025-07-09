@@ -57,6 +57,12 @@ onUnmounted(() => clearInterval(timer))
     <div class="flex flex-col justify-center items-center">
       <div class="flex flex-row gap-1">
         <span
+          v-if="diffStringArray.years.length < 2"
+          class="flex h-12 w-8 text-2xl bg-[#ff5a13] text-white rounded-md justify-center items-center shadow-md"
+        >
+          {{0}}
+        </span>
+        <span
           v-for="character in diffStringArray.years"
           class="flex h-12 w-8 text-2xl bg-[#ff5a13] text-white rounded-md justify-center items-center shadow-md"
         >
@@ -68,6 +74,12 @@ onUnmounted(() => clearInterval(timer))
 
     <div class="flex flex-col justify-center items-center">
       <div class="flex flex-row gap-1">
+        <span
+          v-if="diffStringArray.days.length < 3"
+          class="flex h-12 w-8 text-2xl bg-[#ff5a13] text-white rounded-md justify-center items-center shadow-md"
+        >
+          {{0}}
+        </span>
         <span
           v-for="character in diffStringArray.days"
           class="flex h-12 w-8 text-2xl bg-[#ff5a13] text-white rounded-md justify-center items-center shadow-md"
@@ -81,6 +93,12 @@ onUnmounted(() => clearInterval(timer))
     <div class="flex flex-col justify-center items-center">
       <div class="flex flex-row gap-1">
         <span
+          v-if="diffStringArray.hours.length < 2"
+          class="flex h-12 w-8 text-2xl bg-[#ff5a13] text-white rounded-md justify-center items-center shadow-md"
+        >
+          {{0}}
+        </span>
+        <span
           v-for="character in diffStringArray.hours"
           class="flex h-12 w-8 text-2xl bg-[#ff5a13] text-white rounded-md justify-center items-center shadow-md"
         >
@@ -93,6 +111,12 @@ onUnmounted(() => clearInterval(timer))
     <div class="flex flex-col justify-center items-center">
       <div class="flex flex-row gap-1">
         <span
+          v-if="diffStringArray.minutes.length < 2"
+          class="flex h-12 w-8 text-2xl bg-[#ff5a13] text-white rounded-md justify-center items-center shadow-md"
+        >
+          {{0}}
+        </span>
+        <span
           v-for="character in diffStringArray.minutes"
           class="flex h-12 w-8 text-2xl bg-[#ff5a13] text-white rounded-md justify-center items-center shadow-md"
         >
@@ -104,6 +128,12 @@ onUnmounted(() => clearInterval(timer))
 
     <div class="flex flex-col justify-center items-center">
       <div class="flex flex-row gap-1">
+        <span
+          v-if="diffStringArray.seconds.length < 2"
+          class="flex h-12 w-8 text-2xl bg-[#ff5a13] text-white rounded-md justify-center items-center shadow-md"
+        >
+          {{0}}
+        </span>
         <span
           v-for="character in diffStringArray.seconds"
           class="flex h-12 w-8 text-2xl bg-[#ff5a13] text-white rounded-md justify-center items-center shadow-md"
