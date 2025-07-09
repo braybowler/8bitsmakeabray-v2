@@ -18,7 +18,7 @@ const toggleDropDownVisiblity = () => {
     @click="toggleDropDownVisiblity"
   ></div>
   <header
-    class="flex flex-row justify-between bg-white xs:py-2 xs:px-4 sm:py-3 sm:px-6 w-full shadow-sm"
+    class="flex flex-row justify-between bg-white xs:py-2 xs:px-4 sm:py-4 sm:px-8 w-full shadow-sm"
   >
     <section id="title" class="flex flex-row items-center space-x-2">
       <img
@@ -61,7 +61,7 @@ const toggleDropDownVisiblity = () => {
         </button>
         <nav
           v-if="showDropDownMenu"
-          class="fixed xs:top-15 xs:right-4 bg-gray-100 flex flex-col text-black border border-black rounded-lg shadow-lg p-2 z-10"
+          class="fixed xs:top-15 xs:right-4 bg-gray-100 flex flex-col text-black border border-black rounded-lg shadow-lg shadow-black p-2 z-10"
         >
           <RouterLink
             id="home-link"

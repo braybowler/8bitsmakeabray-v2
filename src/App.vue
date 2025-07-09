@@ -6,5 +6,5 @@ import TopNavBar from '@/components/TopNavBar.vue'
 <template>
   <TopNavBar />
 
-  <RouterView class="h-dvh w-full xs:py-2 xs:px-4 sm:py-6 sm:px-10" />
+  <RouterView class="h-dvh w-full xs:py-2 xs:px-4 sm:py-4 sm:px-8" />
 </template>
