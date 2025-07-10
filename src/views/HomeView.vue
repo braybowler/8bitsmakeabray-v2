@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import ElapsedClock from '@/components/ElapsedClock.vue'
+import Link from '@/components/Link.vue'
+
+const BKG_SOFTWARE_LINK = "https://bkgsoftware.com/";
+const WEDGE_MATRIX_LINK = "https://apps.apple.com/ca/app/wedge-matrix/id6744891049";
+const VEHIKL_LINK = "https://vehikl.com";
+
 </script>
 
 <template>
@@ -15,13 +20,13 @@ import ElapsedClock from '@/components/ElapsedClock.vue'
       </h3>
 
       <p>
-        Founding member of <a href="https://bkgsoftware.com">BKG Software</a>.
+        Founding member of <Link :href="BKG_SOFTWARE_LINK">BKG Software</Link>.
       </p>
       <p>
-        Creator of <a href="https://apps.apple.com/ca/app/wedge-matrix/id6744891049">Wedge Matrix</a>.
+        Creator of <Link :href="WEDGE_MATRIX_LINK">Wedge Matrix</Link>.
       </p>
       <p>
-        Full-time developer at <a href="https://vehikl.com">Vehikl</a>.
+        Full-time developer at <Link :href="VEHIKL_LINK">Vehikl</Link>.
       </p>
     </section>
 <!--    <section class="xs:w-full xs:h-1/2 sm:w-1/2 sm:h-full flex items-baseline">-->

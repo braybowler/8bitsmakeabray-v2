@@ -37,19 +37,30 @@ const toggleDropDownVisiblity = () => {
 
     <section id="navigation">
       <nav id="navigation-links" v-if="!isMobile" class="xs:hidden sm:flex sm:items-center sm:space-x-4 text-black h-full">
-        <RouterLink id="home-link" to="/" class="hover:underline" activeClass="font-bold"
-          >Home</RouterLink
-        >
-        <RouterLink id="about-link" to="/about" class="hover:underline" activeClass="font-bold"
-          >About</RouterLink
+        <RouterLink
+          id="home-link"
+          to="/"
+          class="hover:underline"
+          activeClass="font-bold text-[#ff5a13]"
+          >
+          /home
+        </RouterLink>
+        <RouterLink
+          id="about-link"
+          to="/about"
+          class="hover:underline"
+          activeClass="font-bold text-[#ff5a13]"
+          >
+          /about
+        </RouterLink
         >
         <RouterLink
           id="projects-link"
           to="/projects"
           class="hover:underline"
-          activeClass="font-bold"
-          >Projects</RouterLink
-        >
+          activeClass="font-bold text-[#ff5a13]"
+          >/projects
+        </RouterLink>
       </nav>
 
       <section v-if="isMobile" id="navigation-menu" class="h-full">
@@ -67,7 +78,7 @@ const toggleDropDownVisiblity = () => {
             id="home-link"
             to="/"
             class="hover:underline"
-            activeClass="font-bold"
+            activeClass="font-bold text-[#ff5a13]"
             @click="toggleDropDownVisiblity"
             >Home</RouterLink
           >
@@ -75,7 +86,7 @@ const toggleDropDownVisiblity = () => {
             id="about-link"
             to="/about"
             class="hover:underline"
-            activeClass="font-bold"
+            activeClass="font-bold text-[#ff5a13]"
             @click="toggleDropDownVisiblity"
             >About</RouterLink
           >
@@ -83,7 +94,7 @@ const toggleDropDownVisiblity = () => {
             id="projects-link"
             to="/projects"
             class="hover:underline"
-            activeClass="font-bold"
+            activeClass="font-bold text-[#ff5a13]"
             @click="toggleDropDownVisiblity"
             >Projects</RouterLink
           >
